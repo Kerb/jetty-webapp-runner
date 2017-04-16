@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<!-- !! нельзя менять id="Server" на что-то другое, т.к. в jetty-maven-plugin харкод на этот id !! -->
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+    <Set name="connectors">
+        <Array type="org.eclipse.jetty.server.Connector">
+            <Item>
+                <New class="org.eclipse.jetty.server.ServerConnector">
+                    <Arg><Ref refid="Server"/></Arg>
+                    <Set name="name">connector8082</Set>
+                    <Set name="port">8082</Set>
+                </New>
+            </Item>
+            <Item>
+                <New class="org.eclipse.jetty.server.ServerConnector">
+                    <Arg><Ref refid="Server"/></Arg>
+                    <Set name="name">connector8083</Set>
+                    <Set name="port">8083</Set>
+                </New>
+            </Item>
+        </Array>
+    </Set>
+</Configure>
